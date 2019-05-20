@@ -1,0 +1,19 @@
+{
+  "name": "questable-cli-node",
+  "version": "1.0.0",
+  "description": "Questable Node CLI",
+  "main": "index.js",
+  "author": "Akshit Garg",
+  "license": "AGPL-3.0-or-later",
+  "private": false,
+  "scripts": {
+    "start": "node ."
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "figlet": "^1.2.1",
+    "import-jsx": "^2.0.0",
+    "ink": "^2.1.1",
+    "react": "^16.8.6"
+  }
+}
