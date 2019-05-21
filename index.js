@@ -1,3 +1,2 @@
-const importJsx = require('import-jsx')
-
-importJsx('./main')
+#!/usr/bin/node
+require('import-jsx')('./main')
