@@ -32,8 +32,7 @@ class MainComponent extends React.Component<{}, MainState> {
       selected_quest: null,
       error: '',
       label: 'Name',
-      current_edit: 0,
-      edited_quest: null
+      current_edit: 0
     }
 
     this.handleInput = this.handleInput.bind(this)
@@ -47,15 +46,7 @@ class MainComponent extends React.Component<{}, MainState> {
   }
 
   handleSubmit(text) {
-    let quest: Quest = {
-      id: 0,
-      difficulty: 1,
-      name: '',
-      priority: 1,
-      state: false
-    }
-
-    quest.id = this.state.selected_quest.id
+    const quest = this.state.selected_quest
 
     switch (this.state.current_edit) {
       case 0: {
@@ -63,6 +54,7 @@ class MainComponent extends React.Component<{}, MainState> {
 
         this.setState(prevState => ({
           current_edit: prevState.current_edit + 1,
+          selected_quest: quest,
           label: 'Difficulty',
           input: ''
         }))
@@ -82,7 +74,8 @@ class MainComponent extends React.Component<{}, MainState> {
         this.setState(prevState => ({
           current_edit: prevState.current_edit + 1,
           label: 'Priority',
-          input: ''
+          input: '',
+          selected_quest: quest
         }))
 
         break
@@ -100,7 +93,8 @@ class MainComponent extends React.Component<{}, MainState> {
         this.setState(prevState => ({
           current_edit: prevState.current_edit + 1,
           label: 'State',
-          input: ''
+          input: '',
+          selected_quest: quest
         }))
 
         break
@@ -116,14 +110,11 @@ class MainComponent extends React.Component<{}, MainState> {
         this.setState(prevState => ({
           current_edit: 0,
           label: 'Name',
-          input: ''
-        }))
-
-        this.setState({
-          edited_quest: quest,
+          input: '',
+          selected_quest: quest,
           view: 'quests',
           status: 'Updating quest'
-        })
+        }))
 
         this.updateQuest()
 
@@ -133,10 +124,9 @@ class MainComponent extends React.Component<{}, MainState> {
   }
 
   async updateQuest() {
-    console.log(this.state.edited_quest)
-    const { id, name, state, priority, difficulty } = this.state.edited_quest
+    const { id, name, state, priority, difficulty } = this.state.selected_quest
 
-    client
+    await client
       .updateQuest(id, {
         state,
         name,
@@ -255,7 +245,7 @@ class MainComponent extends React.Component<{}, MainState> {
   }
 }
 
-const handleError = (err: string) => {
+const handleError = (err: any) => {
   console.clear()
   console.log(err)
 

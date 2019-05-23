@@ -35,5 +35,4 @@ export interface MainState {
   error: string
   label: string
   current_edit: number
-  edited_quest: Quest | null
 }
