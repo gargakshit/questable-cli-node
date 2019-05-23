@@ -7,8 +7,7 @@ import SelectInput from 'ink-select-input'
 import TextInput from 'ink-text-input'
 import questable from 'questable'
 
-import { MainState, Items } from './types'
-import { Quest } from 'questable/dist/types'
+import { MainState, Items, Quest } from './types'
 
 const { token } = require('./config')
 
