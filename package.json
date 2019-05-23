@@ -1,5 +1,5 @@
 {
-  "name": "questable-cli-node",
+  "name": "questable-cli",
   "version": "1.0.0",
   "description": "Questable Node CLI",
   "main": "index.js",
@@ -7,15 +7,25 @@
   "license": "AGPL-3.0-or-later",
   "private": false,
   "scripts": {
-    "start": "node ."
+    "start": "ts-node src"
   },
   "dependencies": {
-    "axios": "^0.18.0",
-    "figlet": "^1.2.1",
     "import-jsx": "^2.0.0",
     "ink": "^2.1.1",
+    "ink-big-text": "^1.0.1",
+    "ink-divider": "^2.0.0",
+    "ink-gradient": "^1.0.0",
     "ink-link": "^1.0.0",
+    "ink-select-input": "^3.1.1",
     "ink-spinner": "^3.0.1",
+    "ink-text-input": "^3.1.1",
+    "questable": "^1.0.2",
     "react": "^16.8.6"
+  },
+  "devDependencies": {
+    "@types/ink": "^0.5.1",
+    "@types/react": "^16.8.18",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.5"
   }
 }
